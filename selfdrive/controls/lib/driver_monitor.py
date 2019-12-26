@@ -4,12 +4,12 @@ from selfdrive.controls.lib.drive_helpers import create_event, EventTypes as ET
 from common.filter_simple import FirstOrderFilter
 from common.stat_live import RunningStatFilter
 
-_AWARENESS_TIME = 100.  # 1.6 minutes limit without user touching steering wheels make the car enter a terminal status
-_AWARENESS_PRE_TIME_TILL_TERMINAL = 25.  # a first alert is issued 25s before expiration
-_AWARENESS_PROMPT_TIME_TILL_TERMINAL = 15.  # a second alert is issued 15s before start decelerating the car
-_DISTRACTED_TIME = 11.
-_DISTRACTED_PRE_TIME_TILL_TERMINAL = 8.
-_DISTRACTED_PROMPT_TIME_TILL_TERMINAL = 6.
+_AWARENESS_TIME = 1800.  # 30 minutes limit without user touching steering wheels make the car enter a terminal status
+_AWARENESS_PRE_TIME_TILL_TERMINAL = 180.  # a first alert is issued 180s before expiration
+_AWARENESS_PROMPT_TIME_TILL_TERMINAL = 60.  # a second alert is issued 60s before start decelerating the car
+_DISTRACTED_TIME = 700.
+_DISTRACTED_PRE_TIME_TILL_TERMINAL = 400.
+_DISTRACTED_PROMPT_TIME_TILL_TERMINAL = 200.
 
 _FACE_THRESHOLD = 0.4
 _EYE_THRESHOLD = 0.6
@@ -33,7 +33,7 @@ _POSE_OFFSET_MAX_COUNT = 3600 # stop deweighting new data after 6 min, aka "shor
 _RECOVERY_FACTOR_MAX = 5. # relative to minus step change
 _RECOVERY_FACTOR_MIN = 1.25 # relative to minus step change
 
-MAX_TERMINAL_ALERTS = 3 # not allowed to engage after 3 terminal alerts
+MAX_TERMINAL_ALERTS = 20 # not allowed to engage after 3 terminal alerts
 MAX_TERMINAL_DURATION = 3000 # 30s
 
 # model output refers to center of cropped image, so need to apply the x displacement offset
